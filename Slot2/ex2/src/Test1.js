@@ -13,11 +13,6 @@ let people = [
     {ID: 3, name: "Charlie", age: 35}
 ];
 
-let person = people
-    .filter(person => person.age > 20)
-    .sort((a, b) => b.age - a.age)
-    .map(person => person.name);
-
 let namesOver20 = people.reduce((acc, person) => {
     if (person.age > 20) acc.push(person.name);
     return acc;
