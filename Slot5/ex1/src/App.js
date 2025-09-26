@@ -5,9 +5,9 @@ import { Exercise2 } from './Components/exercise2';
 import { Exercise3 } from './Components/exercise3';
 import { Exercise4 } from './Components/exercise4';
 import { Exercise5 } from './Components/exercise5';
-import { Exercise6 } from './Components/exercise6';
-import { Exercise7 } from './Components/exercise7';
-import { Exercise8 } from './Components/exercise8';
+import { Exercise6 } from '../../ex2/src/Components/exercise6';
+import { Exercise7 } from '../../ex2/src/Components/exercise7';
+import { Exercise8 } from '../../ex2/src/Components/exercise8';
 
 function App() {
   return (
