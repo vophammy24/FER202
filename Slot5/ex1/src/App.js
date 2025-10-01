@@ -5,9 +5,6 @@ import { Exercise2 } from './Components/exercise2';
 import { Exercise3 } from './Components/exercise3';
 import { Exercise4 } from './Components/exercise4';
 import { Exercise5 } from './Components/exercise5';
-import { Exercise6 } from '../../ex2/src/Components/exercise6';
-import { Exercise7 } from '../../ex2/src/Components/exercise7';
-import { Exercise8 } from '../../ex2/src/Components/exercise8';
 
 function App() {
   return (
@@ -26,15 +23,6 @@ function App() {
       <hr />
       <h4>Exercise 5:</h4>
       <Exercise5 />
-      <hr />
-      <h4>Exercise 6:</h4>
-      <Exercise6 />
-      <hr />
-      <h4>Exercise 7:</h4>
-      <Exercise7 />
-      <hr />
-      <h4>Exercise 8:</h4>
-      <Exercise8 />
       <hr />
     </div>
   );
