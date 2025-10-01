@@ -11,11 +11,17 @@ export function Exercise6 () {
         { name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
         ];
 
+        
+
+        const list = companies.filter(c => c.category === "Finance" || c.category === "Technology");
+
         const sortedCompanies = [...companies].sort((a, b) => a.end - b.end);
 
-        sortedCompanies.slice(0, 3).forEach(c => {
-        console.log(`${c.name} - ${c.end}`);
-        });
+        // sortedCompanies.slice(0, 3).forEach(c => {
+        // console.log(`${c.name} - ${c.end}`);
+        // });
+        const sortedbyName = [...companies].sort((a, b) => b.name.localeCompare(a.name));
+
     return (
         <>
         <p>Company:</p>
@@ -51,6 +57,15 @@ export function Exercise6 () {
                 </li>
             ))}
         </ul>
+        <p>List Finance or Technology:</p>
+        <ul>
+            {list.map((company, idx) => (
+                <li key={idx}>
+                    <strong>{company.name}</strong><br/>
+                    <span>Category: {company.category}</span><br/>
+                </li>
+                ))}
+        </ul>    
         </>
     )
 }

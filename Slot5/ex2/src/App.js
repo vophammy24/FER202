@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { Exercise6 } from 'Components/exercise6';
-import { Exercise7 } from 'Components/exercise7';
-import { Exercise8 } from 'Components/exercise8';
+import { Exercise6 } from './Components/exercise6';
+import { Exercise7 } from './Components/exercise7';
+import { Exercise8 } from './Components/exercise8';
 
 function App() {
   return (
