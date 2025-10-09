@@ -15,9 +15,9 @@ export function Header() {
                             <a className="nav-link text-white-50" href="#">Contact</a>
                         </li>
                     </ul>
-                    <form class="d-flex">  
-                        <input class="form-control" type="search" aria-label="Search" placeholder="Search"/>
-                        <button class="btn btn-danger" type="submit">🔍︎</button>
+                    <form className="d-flex">  
+                        <input className="form-control" type="search" aria-label="Search" placeholder="Search"/>
+                        <button className="btn btn-danger" type="submit">🔍︎</button>
                     </form>
                 </div>
             </div>
