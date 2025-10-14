@@ -1,0 +1,216 @@
+/* NavBar.css */
+
+/* ====== Tokens (có thể điều chỉnh cho brand của bạn) ====== */
+:root {
+  --nav-bg: #1a97b0;
+  --nav-text: #ffffff;
+  --nav-text-dim: rgba(255,255,255,.85);
+  --nav-link-hover: #fff;
+  --nav-pill-bg: rgba(255,255,255,.15);
+  --nav-pill-border: rgba(255,255,255,.25);
+  --nav-shadow: 0 6px 24px rgba(2, 100, 144, .25);
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #0f172a;
+  --dropdown-border: rgba(15,23,42,.08);
+  --dropdown-shadow: 0 10px 30px rgba(2,12,27,.16);
+}
+
+/* Dark mode tinh chỉnh tự động */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dropdown-bg: #0b1220;
+    --dropdown-text: #e5e7eb;
+    --dropdown-border: rgba(148,163,184,.18);
+    --dropdown-shadow: 0 10px 30px rgba(0,0,0,.45);
+  }
+}
+
+/* ====== Khung nav chính ====== */
+.dora-navbar.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1040; /* trên hầu hết nội dung, dưới modal (1055) */
+  background: var(--nav-bg) !important; /* override bg-light */
+  color: var(--nav-text);
+  /* border-radius: 16px;
+  margin-block: 12px; */
+  box-shadow: var(--nav-shadow);
+  backdrop-filter: blur(6px);
+}
+
+/* Container bên trong */
+.dora-navbar .container,
+.dora-navbar .container-fluid {
+  padding-block: 10px;
+}
+
+/* ====== Logo / Brand ====== */
+.dora-navbar .navbar-brand {
+  color: var(--nav-text);
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.dora-navbar .navbar-brand:hover,
+.dora-navbar .navbar-brand:focus {
+  color: var(--nav-link-hover);
+  text-decoration: none;
+}
+
+/* ====== Links chính (Home / About / Contact) ====== */
+.dora-navbar .nav-link {
+  color: var(--nav-text-dim) !important;
+  font-weight: 600;
+  padding: 8px 12px;
+  position: relative;
+}
+.dora-navbar .nav-link:hover,
+.dora-navbar .nav-link:focus,
+.dora-navbar .nav-link.active {
+  color: var(--nav-link-hover) !important;
+}
+.dora-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+  opacity: .9;
+}
+.dora-navbar .nav-link:hover::after,
+.dora-navbar .nav-link:focus::after,
+.dora-navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ====== Accounts (dropdown trigger) ====== */
+.dora-navbar .dropdown-toggle,
+.dora-navbar .dropdown-toggle span,
+.dora-navbar .dropdown-toggle svg {
+  color: var(--nav-text-dim);
+}
+.dora-navbar .dropdown-toggle:hover,
+.dora-navbar .dropdown-toggle:focus {
+  color: var(--nav-link-hover);
+}
+
+/* ====== Dropdown menu ====== */
+.dora-navbar .dropdown-menu {
+  background: var(--dropdown-bg);
+  color: var(--dropdown-text);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 14px;
+  box-shadow: var(--dropdown-shadow);
+  padding: 10px;
+  margin-top: 10px;
+  min-width: 240px;
+}
+.dora-navbar .dropdown-item {
+  border-radius: 10px;
+  color: var(--dropdown-text);
+  font-weight: 600;
+  padding: 10px 12px;
+}
+.dora-navbar .dropdown-item:hover,
+.dora-navbar .dropdown-item:focus {
+  background: rgba(2,100,144,.08);
+}
+.dora-navbar .dropdown-divider {
+  background-color: var(--dropdown-border);
+  opacity: 1;
+  margin: 6px 4px;
+}
+
+/* ====== Nhóm Search (desktop) ====== */
+.dora-navbar .input-group {
+  background: var(--nav-pill-bg);
+  border: 1px solid var(--nav-pill-border);
+  border-radius: 999px;
+  overflow: hidden;
+  transition: box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
+.dora-navbar .input-group:focus-within {
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.55);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.14);
+}
+.dora-navbar .input-group .input-group-text {
+  background: transparent;
+  border: none;
+  color: var(--nav-text);
+  padding-inline: 12px;
+}
+.dora-navbar .form-control[type="search"] {
+  background: transparent;
+  border: none;
+  color: var(--nav-text);
+  padding-inline: 4px 12px;
+}
+.dora-navbar .form-control::placeholder {
+  color: rgba(255,255,255,.7);
+}
+
+/* Nút Search */
+.dora-navbar .btn.btn-primary {
+  background: #ffffff;
+  color: #026490;
+  border: none;
+  padding-inline: 16px;
+  font-weight: 700;
+}
+.dora-navbar .btn.btn-primary:hover,
+.dora-navbar .btn.btn-primary:focus {
+  filter: brightness(.95);
+}
+
+/* ====== Search (mobile gọn) ====== */
+@media (max-width: 991.98px) {
+  .dora-navbar .d-lg-none .form-control[type="search"] {
+    background: rgba(255,255,255,.15);
+    border: 1px solid var(--nav-pill-border);
+    color: var(--nav-text);
+    border-radius: 10px;
+  }
+}
+
+/* ====== Khu “Quick actions” (Login, Favourites) ====== */
+.dora-navbar .nav .nav-link svg {
+  width: 18px;
+  height: 18px;
+}
+.dora-navbar .nav .nav-link {
+  color: var(--nav-text-dim) !important;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.dora-navbar .nav .nav-link:hover,
+.dora-navbar .nav .nav-link:focus {
+  color: var(--nav-link-hover) !important;
+  background: rgba(255,255,255,.12);
+}
+
+/* ====== Toggle (hamburger) ====== */
+.dora-navbar .navbar-toggler {
+  border: 1px solid rgba(255,255,255,.35);
+  color: var(--nav-text);
+}
+.dora-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(255,255,255,.2);
+}
+
+/* ====== Hiệu ứng bo góc + khung ====== */
+.dora-navbar.navbar {
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+/* ====== Option: full-bleed ngang màn hình (nếu không bọc .container) ====== */
+.dora-navbar.navbar .container-fluid {
+  padding-left: 20px;
+  padding-right: 20px;
+}
