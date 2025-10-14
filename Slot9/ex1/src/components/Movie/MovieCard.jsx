@@ -12,6 +12,8 @@ const truncate = (text, max = 120) => {
 /** A single card */
 export function MovieCard({ movie, onAdd }) {
   const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
 
   const genreText = movie.genre;
   const genres = useMemo(
@@ -41,7 +43,7 @@ export function MovieCard({ movie, onAdd }) {
             <span className="vr mx-2" />
             <span className="me-2">{movie.country}</span>
             <span className="vr mx-2" />
-            <span className="me-2">{movie.duration}</span>
+            <span className="me-2">{movie.duration} phút</span>
           </div>
 
           <Card.Text className="flex-grow-1 line-clamp-2">{shortDesc}</Card.Text>
@@ -60,7 +62,7 @@ export function MovieCard({ movie, onAdd }) {
             >
               Add to Favourites
             </Button>
-            <Button variant="outline-primary" onClick={() => setOpen(true)}>
+            <Button variant="outline-primary" onClick={handleOpen}>
               Details
             </Button>
           </div>
@@ -91,7 +93,7 @@ export function MovieCard({ movie, onAdd }) {
                 <strong>Năm:</strong> {movie.year} &nbsp;|&nbsp; <strong>Quốc gia:</strong> {movie.country}
               </div>
               <div className="mb-2">
-                <strong>Thời lượng:</strong>  {movie.duration} 
+                <strong>Thời lượng:</strong>  {movie.duration} phút
               </div>
               <h6 className="mb-2">Mô tả chi tiết</h6>
               <p className="mb-4">{movie.description}</p>
@@ -107,7 +109,7 @@ export function MovieCard({ movie, onAdd }) {
         </Modal.Body>
         <Modal.Footer>
             <Button variant="danger" className="flex-grow-12" onClick={() => onAdd?.(movie)}> Add to Favourites </Button>
-            <Button variant="outline-secondary" onClick={() => setOpen(false)}>Close</Button>
+            <Button variant="outline-secondary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>
     </>
@@ -143,7 +145,7 @@ export default function MovieGrid({ data = [] }) {
       </Row>
 
       {/* Toast */}
-      <ToastContainer position="bottom-end" className="mb-3"  containerPosition="fixed">
+      <ToastContainer position="top-center" className="mb-3"  containerPosition="fixed">
         <Toast
           bg="dark"
           onClose={() => setToast({ ...toast, show: false })}

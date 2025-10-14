@@ -6,6 +6,7 @@ overflow: hidden;
 background: #ffffff;
 box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 transition: transform 160ms ease, box-shadow 160ms ease;
+
 }
 .movie-card:hover {
 transform: translateY(-4px);

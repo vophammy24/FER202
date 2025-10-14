@@ -1,0 +1,41 @@
+/* Giữ sticky + bo góc sẵn có */
+.filter-card {
+  position: sticky !important;
+  top: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #eef1f4;
+  box-shadow: 0 6px 26px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.filter-card .card-header {
+  border-bottom: 1px solid #eef1f4;
+  padding: 0.85rem 1rem;
+}
+
+.filter-card .form-select,
+.filter-card .form-control {
+  border-radius: 0.75rem;
+}
+
+/* Ô input có viền mềm + focus state đẹp */
+.filter-input .form-control {
+  border-color: #e5e7eb;
+}
+.filter-input .form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(2, 100, 144, 0.12);
+  border-color: #026490;
+}
+.filter-input .btn {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+/* Genre chips */
+.genre-chip {
+  border-radius: 999px;
+  padding: .35rem .75rem;
+  font-weight: 600;
+  line-height: 1;
+}
