@@ -1,0 +1,22 @@
+.layout{
+    display: flex;
+    min-height: 100vh;
+    
+}
+.sidebar{
+    display:flex;
+    flex-direction: column;
+    width: 240px; 
+    flex-shrink: 0; 
+    background: #fff; 
+    border-right: 1px solid #e6e8ec;
+    padding: 16px 12px; 
+    position: sticky; 
+    align-self: flex-start; 
+    height: 100vh;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04);
+}
+.main-content{
+    flex: 1; 
+    padding: 20px 24px;
+}
